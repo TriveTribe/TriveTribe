@@ -1,6 +1,12 @@
+import { authAdminWithPassword } from "@/utils/pocketbase/auth/authAdminWithPassword";
+import { registerAdmin } from "@/utils/pocketbase/auth/registerAdmin";
 import Image from "next/image";
 
 export default async function Home() {
+
+  await authAdminWithPassword("admin@admin.com", "password123");
+  const result = await registerAdmin("adminapi@admin.com", "adminapi", "password123");
+  console.log(result)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
