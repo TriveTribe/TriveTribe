@@ -1,14 +1,6 @@
-import { fetchBadges } from "@/utils/pocketbase/post/fetchBadges";
-import { fetchEvents } from "@/utils/pocketbase/post/fetchEvents";
-import { fetchUsers } from "@/utils/pocketbase/post/fetchUsers";
 import Image from "next/image";
 
 export default async function Home() {
-  const users = await fetchUsers();
-  const events = await fetchEvents();
-  const badges = await fetchBadges();
-
-  console.log(users, events, badges);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
