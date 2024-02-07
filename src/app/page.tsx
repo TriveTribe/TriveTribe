@@ -1,5 +1,5 @@
-import HeaderComponent from "@/components/eventComponents/HeaderComponent";
-import TextComponent from "@/components/eventComponents/TextComponent";
+import HeaderComponent from "@/components/generalComponents/HeaderComponent";
+import TextComponent from "@/components/generalComponents/TextComponent";
 
 
 export default async function Home() {
