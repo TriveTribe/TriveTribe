@@ -14,27 +14,27 @@ const DEFAULT_NAME = "John Doe";
 const buttons = [
   {
     name: "Home",
-    icon: <HomeIcon className="text-white"/>,
+    icon: <HomeIcon/>,
     url: "/"
   },
   {
     name: "Events",
-    icon: <CalendarMonthIcon className="text-white"/>,
+    icon: <CalendarMonthIcon/>,
     url: "/events"
   },
   {
     name: "History",
-    icon: <HistoryIcon className="text-white"/>,
+    icon: <HistoryIcon/>,
     url: "/history"
   },
   {
     name: "Badges",
-    icon: <TokenIcon className="text-white"/>,
+    icon: <TokenIcon/>,
     url: "/badges"
   },
   {
     name: "Settings",
-    icon: <SettingsIcon className="text-white"/>,
+    icon: <SettingsIcon/>,
     url: "/settings"
   },
 ];
