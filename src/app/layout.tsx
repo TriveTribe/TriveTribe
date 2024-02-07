@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} h-full w-full overflow-hidden bg-white text-black flex`}>
+      <body className={`${inter.className} bg-white text-black flex`}>
         <SidebarComponent  /> 
-        <div>{children}</div>
+        {children}
       </body>
     </html>
   );
