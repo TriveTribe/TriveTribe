@@ -1,9 +1,8 @@
 import EventCardComponent from '@/components/eventComponents/EventCardComponent';
-import EventHeaderComponent from '@/components/eventComponents/EventHeaderComponent'
-import HeaderComponent from '@/components/eventComponents/HeaderComponent';
 import { EventModel } from '@/models/eventModel';
 import { fetchEvents } from '@/utils/pocketbase/events/fetchEvents';
 import React from 'react'
+import HeaderComponent from '@/components/generalComponents/HeaderComponent';
 
 type Props = {}
 
