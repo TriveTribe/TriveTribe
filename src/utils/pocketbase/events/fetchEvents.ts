@@ -23,6 +23,7 @@ export const fetchEvents = async (pagination: number, pageNumber: number) => {
         organizer: record.organizer,
         xpGiven: record.xpGiven,
         images: record.images,
+        users: record.users,
       };
     });
 

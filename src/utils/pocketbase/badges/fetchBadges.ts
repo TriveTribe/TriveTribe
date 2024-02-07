@@ -6,7 +6,7 @@ import { client } from "../client";
 export const fetchBadges = async () => {
   try {
     const records = await client.badges.getFullList({
-      sort: "created",
+      sort: "-created",
     });
 
     if (records.length === 0)
