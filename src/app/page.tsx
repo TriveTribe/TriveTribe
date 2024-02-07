@@ -1,4 +1,3 @@
-import { registerUser } from "@/utils/pocketbase/auth/registerUser";
 import Image from "next/image";
 
 export default async function Home() {
