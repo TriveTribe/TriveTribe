@@ -14,7 +14,8 @@ import { pocketbaseDefaultModel } from "./pocketbaseModel";
 export interface EventModel extends pocketbaseDefaultModel {
   name: string;
   description: string;
-  dateTime: Date;
+  startDateTime: Date;
+  endDateTime: Date;
   location: string;
   organizer: string;
   xpGiven: number;
@@ -34,8 +35,9 @@ export interface EventModel extends pocketbaseDefaultModel {
 export interface CreateEventModel {
   name: string;
   description: string;
-  dateTime: string;
   location: string;
   organizer_id: string;
   xpGiven: number;
+  startDateTime: string;
+  endDateTime: string;
 }
