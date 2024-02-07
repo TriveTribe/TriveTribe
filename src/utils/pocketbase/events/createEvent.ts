@@ -9,7 +9,8 @@ export const createEvent = async (createEventModel: CreateEventModel) => {
     const records = await client.events.create({
       name: createEventModel.name,
       description: createEventModel.description,
-      dateTime: createTimestamp(createEventModel.dateTime),
+      startDateTime: createTimestamp(createEventModel.startDateTime),
+      endDateTime: createTimestamp(createEventModel.endDateTime),
       location: createEventModel.location,
       organizer: createEventModel.organizer_id,
       xpGiven: createEventModel.xpGiven,
