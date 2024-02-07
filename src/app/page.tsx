@@ -1,10 +1,14 @@
-import Image from "next/image";
+import HeaderComponent from "@/components/eventComponents/HeaderComponent";
+import TextComponent from "@/components/eventComponents/TextComponent";
+
 
 export default async function Home() {
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello
+    <main className="flex flex-col pl-5">
+      <HeaderComponent title="Annoucements" />
+      <TextComponent msg="This is an example of the annoucement" />
+      <HeaderComponent title="Upcoming Events" />
     </main>
   );
 }
