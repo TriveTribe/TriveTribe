@@ -1,24 +1,19 @@
+import { CreateUserModel } from "@/models/userModel";
 import { client } from "../client";
 
 /**
- * Registers the user with the given email, username and password
+ * Takes in a CreateUserModel to register the user
  * @return records of the result
  */
-export const registerUser = async (
-  email: string,
-  username: string,
-  password: string,
-  role: string
-) => {
+export const registerUser = async (createUserModel: CreateUserModel) => {
   try {
     const records = await client.users.create({
-      email: email,
-      username: username,
-      password: password,
-      passwordConfirm: password,
-      role: role,
+      email: createUserModel.email,
+      username: createUserModel.username,
+      password: createUserModel.password,
+      passwordConfirm: createUserModel.password,
+      role: createUserModel.role,
     });
-    console.log("user created");
     return records;
   } catch (error:any) {
     throw new Error(error);
