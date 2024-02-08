@@ -3,6 +3,8 @@ import { client } from "../client";
 
 /**
  * Create announcements on pocketbase
+ * @param createAnnouncementModel model for creating an announcement
+ * @returns records of the created announcement
  */
 export const createAnnouncement = async (
   createAnnouncementModel: CreateAnnouncementModel,

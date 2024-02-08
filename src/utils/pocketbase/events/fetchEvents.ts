@@ -2,7 +2,10 @@ import { client } from "../client";
 import { EventModel } from "@/models/eventModel";
 
 /**
- * Fetch all events
+ * Fetch all events with the given pagination and page number
+ * @param pagination number of items to fetch per page
+ * @param pageNumber page number to fetch
+ * @returns array of events
  */
 export const fetchEvents = async (pagination: number, pageNumber: number) => {
   try {

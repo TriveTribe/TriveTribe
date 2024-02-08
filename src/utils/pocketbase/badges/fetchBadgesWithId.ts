@@ -2,7 +2,8 @@ import { BadgeModel } from "@/models/badgeModel";
 import { client } from "../client";
 
 /**
- * Fetch all badges
+ * Fetch all badges that match the given badgeIds
+ * @param badgeIds array of badge ids to fetch
  */
 export const fetchBadgesWithId = async (badgeIds: string[]) => {
   try {

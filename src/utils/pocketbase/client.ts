@@ -4,9 +4,11 @@ import PocketBase, {
   RecordService,
 } from "pocketbase";
 
-// export const client = new PocketBase(`${process.env.POCKETHOST_URL}`);
 const POCKETHOST_URL = process.env.POCKETHOST_URL;
 
+/**
+ * PocketClient class to handle all pocketbase operations
+ */
 export class PocketClient {
   private client: PocketBase;
   public users: RecordService<RecordModel>;
