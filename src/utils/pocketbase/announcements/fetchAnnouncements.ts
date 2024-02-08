@@ -3,6 +3,9 @@ import { client } from "../client";
 
 /**
  * Fetch first n Announcements
+ * @param pagination number of items to fetch per page
+ * @param page page number to fetch
+ * @returns array of announcements
  */
 export const fetchAnnouncements = async (
   pagination: number,

@@ -6,28 +6,22 @@ import ButtonComponent from "@/components/generalComponents/ButtonComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
 
 export default async function Home() {
-
   // all the fetch requests here
   const events = await fetchEvents(3, 1);
   const titles = await fetchAnnouncements(3, 1).then((announcements) => {
     return announcements.map((announcement) => {
       return announcement.description;
-    }
-  )});
+    });
+  });
   const img_links = ["", "", ""];
 
   return (
     <main className="flex flex-col pl-5 w-full">
       <div className="flex items-center">
         <HeaderComponent title="Annoucements" />
-       
-        <ButtonComponent
-          title="Add"
-          type="annoucement"
-        />
-        
+        <ButtonComponent title="Add" type="annoucement" />
       </div>
-      
+
       <CarouselComponent imgLinks={img_links} titles={titles} />
       <HeaderComponent title="Upcoming Events" />
       <div className="flex flex-wrap gap-8 px-16">
