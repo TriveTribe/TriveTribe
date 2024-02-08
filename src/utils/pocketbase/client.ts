@@ -13,6 +13,7 @@ export class PocketClient {
   public badges: RecordService<RecordModel>;
   public events: RecordService<RecordModel>;
   public admins: AdminService;
+  public announcements: RecordService<RecordModel>;
 
   constructor() {
     this.client = new PocketBase(POCKETHOST_URL);
@@ -22,6 +23,7 @@ export class PocketClient {
     this.badges = this.client.collection("badges");
     this.events = this.client.collection("events");
     this.admins = this.client.admins;
+    this.announcements = this.client.collection("announcements");
   }
 
   public collection(collectionName: string) {

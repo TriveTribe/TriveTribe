@@ -2,6 +2,7 @@ import EventCardComponent from "@/components/eventComponents/EventCardComponent"
 import CarouselComponent from "@/components/generalComponents/CarouselComponent";
 import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import TextComponent from "@/components/generalComponents/TextComponent";
+import { createAnnouncement } from "@/utils/pocketbase/announcements/createAnnouncements";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
 
 export default async function Home() {
