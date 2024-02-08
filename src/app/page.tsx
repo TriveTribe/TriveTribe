@@ -1,8 +1,8 @@
 import EventCardComponent from "@/components/eventComponents/EventCardComponent";
 import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import TextComponent from "@/components/generalComponents/TextComponent";
+import { createAnnouncement } from "@/utils/pocketbase/announcements/createAnnouncements";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
-
 
 export default async function Home() {
   const DUMMY_EVENTS = await fetchEvents(3, 1);
@@ -12,14 +12,10 @@ export default async function Home() {
       <HeaderComponent title="Annoucements" />
       <TextComponent msg="This is an example of the annoucement" />
       <HeaderComponent title="Upcoming Events" />
-      <div className='flex flex-wrap gap-8 px-16'>
-        {
-          DUMMY_EVENTS.map((event, index) => {
-            return (
-              <EventCardComponent key={index} event={event} />
-            )
-          })
-        }
+      <div className="flex flex-wrap gap-8 px-16">
+        {DUMMY_EVENTS.map((event, index) => {
+          return <EventCardComponent key={index} event={event} />;
+        })}
       </div>
     </main>
   );

@@ -10,9 +10,12 @@ export const fetchEvents = async (pagination: number, pageNumber: number) => {
       sort: "-created",
     });
 
-    if (records.items.length === 0) console.warn("No events found from pocketbase, please check if fetched correctly");
+    if (records.items.length === 0)
+      console.warn(
+        "No events found from pocketbase, please check if fetched correctly",
+      );
 
-    const events:EventModel[] = records.items.map((record) => {
+    const events: EventModel[] = records.items.map((record) => {
       return {
         id: record.id,
         name: record.name,
