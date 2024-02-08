@@ -27,6 +27,6 @@ const config: Config = {
       gray: "#696969"
     }
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };
 export default config;
