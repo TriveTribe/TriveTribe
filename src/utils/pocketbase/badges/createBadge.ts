@@ -8,7 +8,7 @@ export const createBadge = async (createBadgeModel: CreateBadgeModel) => {
   try {
     const records = await client.events.create({
       name: createBadgeModel.name,
-      description: createBadgeModel.description
+      description: createBadgeModel.description,
     });
     return records;
   } catch (error) {

@@ -1,4 +1,3 @@
-
 /**
  * Converts date time to string format dd-mm-yy hh:mm
  * @param date Date to convert

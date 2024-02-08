@@ -11,7 +11,7 @@ export const fetchBadges = async () => {
 
     if (records.length === 0)
       console.warn(
-        "No badges found from pocketbase, please check if fetched correctly"
+        "No badges found from pocketbase, please check if fetched correctly",
       );
 
     return records;
