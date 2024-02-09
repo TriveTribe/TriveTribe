@@ -4,9 +4,7 @@ import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import { fetchAnnouncements } from "@/utils/pocketbase/announcements/fetchAnnouncements";
 import ButtonComponent from "@/components/generalComponents/ButtonComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
-import { createBadgesReceived } from "@/utils/pocketbase/badgesReceived/createBadgesReceived";
-import { fetchBadgesReceivedWithId } from "@/utils/pocketbase/badgesReceived/fetchBadgesReceivedWithId";
-import { updateUser } from "@/utils/pocketbase/auth/updateUser";
+import AnnouncementForm from "@/components/formComponents/AnnouncementForm";
 
 export default async function Home() {
   // all the fetch requests here
@@ -22,9 +20,10 @@ export default async function Home() {
     <main className="flex flex-col pl-5 w-full">
       <div className="flex items-center">
         <HeaderComponent title="Annoucements" />
-        <ButtonComponent title="Add" type="annoucement" />
+        <ButtonComponent title="Add" type="annoucement">
+          <AnnouncementForm formLabel="Add Announcement" isLoading={false} />
+        </ButtonComponent>
       </div>
-
       <CarouselComponent imgLinks={img_links} titles={titles} />
       <HeaderComponent title="Upcoming Events" />
       <div className="flex flex-wrap gap-8 px-16">

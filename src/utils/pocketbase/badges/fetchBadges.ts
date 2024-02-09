@@ -10,10 +10,12 @@ export const fetchBadges = async (pagination: number, pageNumber: number) => {
       sort: "-created",
     });
 
-    if (records.items.length === 0) console.warn("No badges found from pocketbase, please check if fetched correctly");
+    if (records.items.length === 0)
+      console.warn(
+        "No badges found from pocketbase, please check if fetched correctly",
+      );
 
-
-    const badges:BadgeModel[] = records.items.map((record) => {
+    const badges: BadgeModel[] = records.items.map((record) => {
       return {
         id: record.id,
         name: record.name,
