@@ -53,7 +53,7 @@ function AnnoucementForm({ formLabel, children, setShowform }: Props) {
         placeholder="Add announcement here..."
         className="rounded-lg px-4 py-2 h-2/3 shadow-lg"
       />
-      <SubmitButtonComponent isLoading={isLoading} text="Submit"/>
+      <SubmitButtonComponent isLoading={isLoading} text="Submit" />
       {children}
     </form>
   );

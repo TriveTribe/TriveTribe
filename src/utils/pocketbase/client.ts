@@ -1,5 +1,6 @@
 import PocketBase, {
-  AdminService, BaseAuthStore,
+  AdminService,
+  BaseAuthStore,
   RecordModel,
   RecordService,
 } from "pocketbase";

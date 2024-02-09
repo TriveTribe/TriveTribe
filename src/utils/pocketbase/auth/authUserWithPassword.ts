@@ -1,15 +1,15 @@
 import { client } from "../client";
-import {LoginModel} from "@/models/loginModel";
+import { LoginModel } from "@/models/loginModel";
 
 /**
  * This is used to authenticate a user with their email/username and password
  * @returns authData of the result
  */
-export const authUserWithPassword = async (
-    loginModel: LoginModel) => {
+export const authUserWithPassword = async (loginModel: LoginModel) => {
   try {
     const authData = await client.users.authWithPassword(
-        loginModel.username, loginModel.password
+      loginModel.username,
+      loginModel.password,
     );
 
     if (!authData.token) {
