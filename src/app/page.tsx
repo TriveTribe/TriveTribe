@@ -4,6 +4,9 @@ import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import { fetchAnnouncements } from "@/utils/pocketbase/announcements/fetchAnnouncements";
 import ButtonComponent from "@/components/generalComponents/ButtonComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
+import { createBadgesReceived } from "@/utils/pocketbase/badgesReceived/createBadgesReceived";
+import { fetchBadgesReceivedWithId } from "@/utils/pocketbase/badgesReceived/fetchBadgesReceivedWithId";
+import { updateUser } from "@/utils/pocketbase/auth/updateUser";
 
 export default async function Home() {
   // all the fetch requests here
