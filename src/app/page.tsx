@@ -17,7 +17,7 @@ export default async function Home() {
   const img_links = ["", "", ""];
 
   return (
-    <main className="flex flex-col pl-5 w-full">
+    <main className="pl-5 w-full h-full">
       <div className="flex items-center">
         <HeaderComponent title="Annoucements" />
         <ToggleFormComponent title="Add">
