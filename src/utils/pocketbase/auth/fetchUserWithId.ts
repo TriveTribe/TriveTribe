@@ -1,13 +1,11 @@
 import { UserModel } from "@/models/userModel";
 import { client } from "../client";
 
-/**
- * Fetch all users
- */
-export const fetchUsers = async () => {
+export const fetchUserWithId = async (id: string) => {
   try {
     const records = await client.users.getFullList({
       sort: "-created",
+      filter: `id="${id}"`,
     });
 
     if (records.length === 0)
@@ -31,7 +29,9 @@ export const fetchUsers = async () => {
       };
     });
 
-    return users;
+    const user: UserModel = users[0];
+
+    return user;
   } catch (error) {
     throw new Error("Error fetching users");
   }
