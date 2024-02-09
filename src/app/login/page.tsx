@@ -1,5 +1,4 @@
 "use client";
-import { CreateAnnouncementModel } from "@/models/announcementModel";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import SubmitButtonComponent from "@/components/generalComponents/SubmitButtonComponent";
@@ -17,7 +16,7 @@ type Props = {
 };
 
 
-function LoginForm({formLabel, children, setShowForm}: Props) {
+function LoginForm({children, setShowForm}: Props) {
   const {register, handleSubmit} = useForm<LoginModel>();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
