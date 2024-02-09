@@ -4,6 +4,8 @@ import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import { fetchAnnouncements } from "@/utils/pocketbase/announcements/fetchAnnouncements";
 import ButtonComponent from "@/components/generalComponents/ButtonComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
+import { createBadgesReceived } from "@/utils/pocketbase/badgesReceived/createBadgesReceived";
+import { fetchBadgesReceivedWithId } from "@/utils/pocketbase/badgesReceived/fetchBadgesReceivedWithId";
 
 export default async function Home() {
   // all the fetch requests here
@@ -14,6 +16,9 @@ export default async function Home() {
     });
   });
   const img_links = ["", "", ""];
+
+  const result = await fetchBadgesReceivedWithId(["0lprbaqlpkl5rvc", "21qbefcr6vh4mnn"])
+  console.log(result);
 
   return (
     <main className="flex flex-col pl-5 w-full">
