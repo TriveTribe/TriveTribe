@@ -5,7 +5,6 @@ import { fetchAnnouncements } from "@/utils/pocketbase/announcements/fetchAnnoun
 import ToggleFormComponent from "@/components/generalComponents/ToggleFormComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
 import AnnouncementForm from "@/components/formComponents/AnnouncementForm";
-import { cookies } from "next/headers";
 
 export default async function Home() {
   // all the fetch requests here
@@ -16,7 +15,6 @@ export default async function Home() {
     });
   });
   const img_links = ["", "", ""];
-  console.log(cookies());
 
   return (
     <main className="pl-5 w-full h-full">

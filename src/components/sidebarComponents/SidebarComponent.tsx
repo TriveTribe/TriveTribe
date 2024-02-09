@@ -8,6 +8,7 @@ import TokenIcon from "@mui/icons-material/Token";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SidebarButtonComponent from "./SidebarButtonComponent";
 import { usePathname } from "next/navigation";
+import { cookies } from "next/headers";
 
 type Props = {};
 
@@ -39,6 +40,14 @@ const buttons = [
     icon: <SettingsIcon />,
     url: "/settings",
   },
+  {
+    name: "Logout",
+    icon: <SettingsIcon />,
+    url: "/login",
+    callback: () => {
+      // deleteCookie("pb_auth");
+    }
+  }
 ];
 
 const SidebarComponent = (props: Props) => {
@@ -59,6 +68,7 @@ const SidebarComponent = (props: Props) => {
               name={button.name}
               icon={button.icon}
               url={button.url}
+              callback={button.callback}
             />
           );
         })}

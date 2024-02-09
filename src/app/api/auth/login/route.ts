@@ -13,11 +13,12 @@ export async function POST(request: NextRequest) {
       password: password,
     });
 
-    console.log(response);
-
     const { record, token } = response;
+
+    console.log("route.ts", record, token);
+
     record.token = token;
-    cookies().set("pb_auth", client.authStore.exportToCookie());
+    cookies().set("pb_auth",client.authStore.exportToCookie());
 
     return NextResponse.json({ message: "Announcement created successfully" });
   } catch (error: any) {
