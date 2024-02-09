@@ -1,5 +1,6 @@
 import PocketBase, {
   AdminService,
+  BaseAuthStore,
   RecordModel,
   RecordService,
 } from "pocketbase";
@@ -17,6 +18,7 @@ export class PocketClient {
   public admins: AdminService;
   public announcements: RecordService<RecordModel>;
   public badgesReceived: RecordService<RecordModel>;
+  public authStore: BaseAuthStore;
 
   constructor() {
     this.client = new PocketBase(POCKETHOST_URL);
@@ -28,6 +30,7 @@ export class PocketClient {
     this.admins = this.client.admins;
     this.announcements = this.client.collection("announcements");
     this.badgesReceived = this.client.collection("badgesReceived");
+    this.authStore = this.client.authStore;
   }
 
   public collection(collectionName: string) {

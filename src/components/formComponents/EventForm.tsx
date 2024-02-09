@@ -179,7 +179,7 @@ function EventForm({
           className="h-14 rounded-md px-4 py-2 shadow-lg"
         />
       </FormInputContainer>
-      <SubmitButtonComponent isLoading={isLoading} />
+      <SubmitButtonComponent text="Submit" isLoading={isLoading} />
       {children}
     </form>
   );
