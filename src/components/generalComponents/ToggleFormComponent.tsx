@@ -3,11 +3,10 @@ import React, { useState } from "react";
 
 type Props = {
   title: string;
-  type: string;
   children?: React.ReactNode;
 };
 
-const HeaderComponent = (props: Props) => {
+const ToggleFormComponent = (props: Props) => {
   const [showForm, setShowForm] = useState(false);
 
   const renderChildren = () => {
@@ -37,4 +36,4 @@ const HeaderComponent = (props: Props) => {
   );
 };
 
-export default HeaderComponent;
+export default ToggleFormComponent;

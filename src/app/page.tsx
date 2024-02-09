@@ -2,7 +2,7 @@ import EventCardComponent from "@/components/eventComponents/EventCardComponent"
 import CarouselComponent from "@/components/generalComponents/CarouselComponent";
 import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import { fetchAnnouncements } from "@/utils/pocketbase/announcements/fetchAnnouncements";
-import ButtonComponent from "@/components/generalComponents/ButtonComponent";
+import ToggleFormComponent from "@/components/generalComponents/ToggleFormComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
 import AnnouncementForm from "@/components/formComponents/AnnouncementForm";
 
@@ -20,9 +20,9 @@ export default async function Home() {
     <main className="flex flex-col pl-5 w-full">
       <div className="flex items-center">
         <HeaderComponent title="Annoucements" />
-        <ButtonComponent title="Add" type="annoucement">
-          <AnnouncementForm formLabel="Add Announcement" isLoading={false} />
-        </ButtonComponent>
+        <ToggleFormComponent title="Add">
+          <AnnouncementForm formLabel="Add Announcement" />
+        </ToggleFormComponent>
       </div>
       <CarouselComponent imgLinks={img_links} titles={titles} />
       <HeaderComponent title="Upcoming Events" />

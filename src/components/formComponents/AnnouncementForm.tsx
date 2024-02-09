@@ -1,25 +1,22 @@
 "use client";
 import { CreateAnnouncementModel } from "@/models/announcementModel";
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import SubmitButtonComponent from "../generalComponents/SubmitButtonComponent";
+import FormHeaderComponent from "./FormHeaderComponent";
 
 type Props = {
   formLabel: string;
-  isLoading?: boolean;
   children?: React.ReactNode;
   setShowform?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function AnnoucementForm({
-  formLabel,
-  isLoading,
-  children,
-  setShowform,
-}: Props) {
+function AnnoucementForm({ formLabel, children, setShowform }: Props) {
   const { register, handleSubmit } = useForm<CreateAnnouncementModel>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit: SubmitHandler<CreateAnnouncementModel> = async (data) => {
+    setIsLoading(true);
     const response = await fetch("/api/announcements", {
       method: "POST",
       headers: {
@@ -36,6 +33,7 @@ function AnnoucementForm({
     if (setShowform) {
       setShowform(false);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -43,17 +41,7 @@ function AnnoucementForm({
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col space-y-4 mx-auto p-8 rounded-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green z-10 w-[500px] h-[400px] shadow-lg"
     >
-      <div className="flex w-full justify-between">
-        <h2 className="text-lg text-white">{formLabel}</h2>
-        <button
-          onClick={() => {
-            setShowform && setShowform(false);
-          }}
-          className="hover:opacity-90 transition-all"
-        >
-          <CloseRoundedIcon className="text-white" />
-        </button>
-      </div>
+      <FormHeaderComponent formLabel={formLabel} setShowform={setShowform} />
       <input
         {...register("header")}
         placeholder="Header here..."
@@ -65,13 +53,7 @@ function AnnoucementForm({
         placeholder="Add announcement here..."
         className="rounded-lg px-4 py-2 h-2/3 shadow-lg"
       />
-      <button
-        type="submit"
-        className="p-2 rounded-lg bg-lightGreen hover:opacity-90 shadow-lg hover:shadow-xl transition-all"
-        disabled={isLoading}
-      >
-        Submit
-      </button>
+      <SubmitButtonComponent isLoading={isLoading} />
       {children}
     </form>
   );
