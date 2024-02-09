@@ -32,6 +32,17 @@ export interface EventModel extends pocketbaseDefaultModel {
  * @param organizer_id organizer of the event
  * @param xpGiven experience points given for the event
  */
+export interface CreateEventFormModel {
+  name: string;
+  description: string;
+  location: string;
+  organizer_id: string;
+  xpGiven: number;
+  date: string;
+  startTime: string;
+  endTime: string;
+}
+
 export interface CreateEventModel {
   name: string;
   description: string;

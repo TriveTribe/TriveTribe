@@ -23,13 +23,13 @@ const CarouselComponent = (props: Props) => {
   };
 
   return (
-    <div className="my-16 mx-8 space-y-8">
+    <div className="mx-8 space-y-8">
       <Carousel next={next} prev={prev} className="" autoPlay={false}>
         {props.titles.map((title, index) => {
           return (
             <Paper
               key={index}
-              className="flex justify-center items-center border-2 rounded-xl"
+              className="flex justify-center items-center border-2 rounded-xl h-[200px]"
             >
               {props.imgLinks[index] && (
                 <Image

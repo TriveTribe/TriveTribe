@@ -14,12 +14,12 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.8",
     "@mui/material": "^5.15.7",
-    "flowbite": "^2.2.1",
-    "flowbite-react": "^0.7.2",
     "next": "14.1.0",
+    "next-auth": "^5.0.0-beta.9",
     "pocketbase": "^0.21.0",
-    "react": "^18",
+    "react": "^18.2.0",
     "react-dom": "^18",
+    "react-hook-form": "^7.50.1",
     "react-material-ui-carousel": "^3.4.2"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "prettier": "3.2.5",
-    "tailwindcss": "^3.3.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }

@@ -1,5 +1,5 @@
 /**
- * Converts date time to string format dd-mm-yy hh:mm
+ * Converts start datetime and end datetime to string format dd/mm/yy hh:mm - hh:mm
  * @param date Date to convert
  */
 export function getDateTime(startDate: Date, endDate: Date): string {

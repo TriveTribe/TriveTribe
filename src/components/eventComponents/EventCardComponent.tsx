@@ -27,21 +27,8 @@ const EventCardComponent = ({ event }: Props) => {
       />
       <h1 className="text-lg font-semibold">{event.name}</h1>
       <p className="text-gray">{event.description}</p>
-      <p className="text-gray">
-        {getDateTime(event.startDateTime, event.endDateTime)}
-      </p>
+      <p className="text-gray">{event.xpGiven}</p>
       <p className="text-gray">{event.location}</p>
-      <div className="flex justify-evenly">
-        <div className="flex w-[50%]">
-          <GroupOutlinedIcon />
-          <p className=" text-gray">{event.users ? event.users.length : 0}</p>
-        </div>
-        <p>|</p>
-        <div className="flex w-[50%]">
-          <StarBorderPurple500RoundedIcon />
-          <p className="text-gray">{event.xpGiven}</p>
-        </div>
-      </div>
     </Link>
   );
 };
