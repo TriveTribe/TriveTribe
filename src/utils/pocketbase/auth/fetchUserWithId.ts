@@ -10,7 +10,7 @@ export const fetchUserWithId = async (id: string) => {
 
     if (records.length === 0)
       console.warn(
-        "No users found from pocketbase, please check if fetched correctly"
+        "No users found from pocketbase, please check if fetched correctly",
       );
 
     const users: UserModel[] = records.map((record) => {

@@ -24,6 +24,8 @@ export const fetchBadgesReceived = async () => {
 
     return badgesReceived;
   } catch (error) {
-    throw new Error("Error fetching badgesReceived, please check implementation");
+    throw new Error(
+      "Error fetching badgesReceived, please check implementation",
+    );
   }
 };

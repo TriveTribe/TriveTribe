@@ -15,7 +15,7 @@ export const fetchUsers = async () => {
         "No users found from pocketbase, please check if fetched correctly",
       );
 
-    const users:UserModel[] = records.map((record) => {
+    const users: UserModel[] = records.map((record) => {
       return {
         id: record.id,
         name: record.name,
@@ -29,7 +29,7 @@ export const fetchUsers = async () => {
         events: record.events,
         badgesReceived: record.badgesReceived,
       };
-    })
+    });
 
     return users;
   } catch (error) {

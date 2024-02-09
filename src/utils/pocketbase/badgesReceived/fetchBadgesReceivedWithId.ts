@@ -4,7 +4,9 @@ import { client } from "../client";
 /**
  * Fetch all badgesReceived from pocketbase
  */
-export const fetchBadgesReceivedWithId = async (badgesReceivedIds: string[]) => {
+export const fetchBadgesReceivedWithId = async (
+  badgesReceivedIds: string[],
+) => {
   try {
     const records = await client.badgesReceived.getFullList({
       sort: "-created",
@@ -25,6 +27,8 @@ export const fetchBadgesReceivedWithId = async (badgesReceivedIds: string[]) => 
 
     return badgesReceived;
   } catch (error) {
-    throw new Error("Error fetching badgesReceived, please check implementation");
+    throw new Error(
+      "Error fetching badgesReceived, please check implementation",
+    );
   }
 };

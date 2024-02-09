@@ -7,7 +7,7 @@ import { pocketbaseDefaultModel } from "./pocketbaseModel";
  * @param created created date
  * @param updated updated date
  */
-export interface BadgesReceivedModel extends pocketbaseDefaultModel{
+export interface BadgesReceivedModel extends pocketbaseDefaultModel {
   badge: string;
   dateTime: string;
 }

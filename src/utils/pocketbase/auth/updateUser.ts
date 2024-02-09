@@ -9,14 +9,14 @@ import { client } from "../client";
  */
 export const updateUser = async (
   userId: string,
-  updateUserModel: UpdateUserModel
+  updateUserModel: UpdateUserModel,
 ) => {
   try {
     const records = await client.users.update(userId, updateUserModel);
     return records;
   } catch (error: any) {
     throw new Error(
-      "Error updating user, please check implementation or pocketbase logs"
+      "Error updating user, please check implementation or pocketbase logs",
     );
   }
 };
