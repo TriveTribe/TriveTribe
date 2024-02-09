@@ -127,7 +127,7 @@ function EventForm({ formLabel, children, setShowform }: Props) {
           className="rounded-lg px-4 py-2 shadow-lg"
         />
       </FormInputContainer>
-      <SubmitButtonComponent isLoading={isLoading} />
+      <SubmitButtonComponent text="Submit" isLoading={isLoading} />
       {children}
     </form>
   );

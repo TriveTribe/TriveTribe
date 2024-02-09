@@ -1,83 +1,73 @@
-// import React from 'react';
-// import ProfileComponent from "@/components/loginComponents/ProfileComponent";
-// import LoginField from "@/components/loginComponents/LoginField";
-// import LoginButton from "@/components/loginComponents/LoginButton";
-// // import { useFormState, useFormStatus } from 'react-dom';
-// // import { authenticate } from '@/app/lib/actions';
-//
-//
-// const LoginPage = () => {
-//     // const [errorMessage, dispatch] = useFormState(authenticate, undefined);
-//     return (
-//         <div className="flex w-screen h-screen justify-center items-center">
-//             <div className="justify-center h-2/3 w-5/6 border-lightGreen border-2">
-//                 <ProfileComponent name="Participant"/>
-//                 <LoginField field={"Login"} details={"Enter Your Username"}></LoginField>
-//                 <LoginField field={"Password"} details={"Enter Your Password"}></LoginField>
-//                 <LoginButton field={"test"}></LoginButton>
-//             </div>
-//         </div>
-//
-//
-//     );
-// };
-//
-
-// export default LoginPage;
-import React from "react";
+"use client";
+import { CreateAnnouncementModel } from "@/models/announcementModel";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import SubmitButtonComponent from "@/components/generalComponents/SubmitButtonComponent";
+import FormHeaderComponent from "@/components/formComponents/FormHeaderComponent";
+import ProfileComponent from "@/components/loginComponents/ProfileComponent";
+import FormInputContainer from "@/components/formComponents/FormInputContainer";
 
 type Props = {
   formLabel: string;
-  isLoading?: boolean;
-  onSubmit: SubmitHandler<Inputs>;
-  username: string;
-  password: string;
+  children?: React.ReactNode;
+  setShowform?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-type Inputs = {
-  username: string;
-  password: string;
-};
+function LoginForm({ formLabel, children, setShowform }: Props) {
+  const { register, handleSubmit } = useForm<CreateAnnouncementModel>();
+  const [isLoading, setIsLoading] = useState(false);
 
-const LoginForm: React.FC<Props> = ({
-  formLabel,
-  isLoading,
-  onSubmit,
-  username,
-  password,
-}: Props) => {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<CreateAnnouncementModel> = async (data) => {
+    setIsLoading(true);
+    const response = await fetch("/api/announcements", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        header: data.header,
+        description: data.description,
+      }),
+    });
+    if (response) {
+      response.json().then((data) => console.log(data));
+    }
+    if (setShowform) {
+      setShowform(false);
+    }
+    setIsLoading(false);
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)} // Call the onSubmit function when the form is submitted
-      className="flex flex-col space-y-4 mx-auto max-w-xs p-4 border border-gray-300 rounded-md"
-    >
-      <h2 className="text-lg font-semibold">{formLabel}</h2>
-      <input
-        {...register("username")}
-        defaultValue={username}
-        placeholder="Username"
-        type="text"
-        className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-500"
-      />
-      <input
-        {...register("password")}
-        defaultValue={password}
-        placeholder="Password"
-        type="password"
-        className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-500"
-      />
-      <button
-        type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out hover:bg-blue-600"
-        disabled={isLoading}
+      <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-4 mx-auto p-8 rounded-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-lightGreen border-2 z-10 w-[600px] h-[500px] shadow-lg"
       >
-        {isLoading ? "Loading..." : "Submit"}
-      </button>
-    </form>
+        <ProfileComponent name={"Participant"}></ProfileComponent>
+        {/*<FormHeaderComponent formLabel={formLabel} setShowform={setShowform} />*/}
+        <div className="flex justify-center">
+          <FormInputContainer label={"Email"}></FormInputContainer>
+        </div>
+        <input
+            {...register("header")}
+            placeholder="Header here..."
+            type="text"
+            className="rounded-lg px-4 py-2 shadow-lg"
+        />
+        <div className="flex justify-center">
+          <FormInputContainer label={"Password"}></FormInputContainer>
+        </div>
+        <input
+            {...register("description")}
+            placeholder="Add announcement here..."
+            className="rounded-lg px-4 py-2 shadow-lg"
+        />
+        <div className="flex mx-2 justify-center mt-10">
+          <SubmitButtonComponent text="Login" isLoading={isLoading}/>
+        </div>
+        {children}
+      </form>
   );
-};
+}
 
 export default LoginForm;
