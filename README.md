@@ -37,3 +37,7 @@ We used the following technologies to build TriveTribe:
 - We plan to create more advance analytics with the data collected through TriveTribe, to provide GUI with more insights on their members in many creative yet robust ways.
 - We also plan to add more features to the platform, such as a leaderboard and a more advanced badge system to future encourage volunteer participation.
 - As TriveTribe is a gamified platform, we plan to add more game elements to make it more fun and engaging for users as they go through learning objectives set by GUI.
+
+## Links
+- [Video](https://youtu.be/Y8D4Fc7HIss)
+- [Slides](https://www.canva.com/design/DAF7X2oj3Hg/zewQFRNBDYZKAH3dokTBQQ/edit?utm_content=DAF7X2oj3Hg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
