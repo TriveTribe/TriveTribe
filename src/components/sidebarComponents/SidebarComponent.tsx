@@ -17,7 +17,6 @@ const DEFAULT_NAME = "John Doe";
 
 const SidebarComponent = (props: Props) => {
   const pathname = usePathname();
-  const router = useRouter();
 
   const buttons = [
     {
