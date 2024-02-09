@@ -19,7 +19,7 @@ Additionally,
 We felt that the current system of tracking user participation in GUI events was not engaging enough. We wanted to create a platform that would encourage users to participate in events and reward them for their efforts, as well as provide insights on volunteers impact. We came up with a gamified platform that would reward users with xp and badges for their participation. Having badges given out for certain learning objectives, GUI would be able to study the volunteering preferences of their members and interests. Not only that, they would also be able to categorise their mmeber's impact on GUI's core organisational pillars. This would not only allow GUI to better understand their members, they can also use this data to improve their events and volunteer experience.
 
 ## Getting Started
-- Try out TriveTrive [here](trivetribe.vercel.app)
+- Try out TriveTribe [here](trivetribe.vercel.app)
 - Use the demo account with the following credentials:
   - Username: `test@test.com`
   - Password: `password`
