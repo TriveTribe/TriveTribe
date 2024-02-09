@@ -41,7 +41,7 @@ const buttons = [
 
 const SidebarComponent = (props: Props) => {
   return (
-    <div className="flex flex-col max-w-[300px] h-screen border-2 border-[#A5EEA0] bg-white">
+    <div className="flex flex-col max-w-[300px] h-full border-2 border-[#A5EEA0] bg-white">
       <ProfileComponent name={DEFAULT_NAME} />
       <div className="flex flex-col space-y-4 m-8 p-4">
         {buttons.map((button, index) => {
