@@ -1,4 +1,4 @@
-![TriveTribeLogo](/public/trivetribe.png)
+![TriveTribeLogo](/public/trivetribeThree.png)
 ## TriveTribe - A gamified platform for Ground Up Initiative
 TriveTribe is a gamified platform that rewards users for their participation with Ground Up Initiative (GUI) events. 
 
