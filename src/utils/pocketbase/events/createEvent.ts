@@ -11,8 +11,8 @@ export const createEvent = async (createEventModel: CreateEventModel) => {
     const records = await client.events.create({
       name: createEventModel.name,
       description: createEventModel.description,
-      startDateTime: createTimestamp(createEventModel.startDateTime),
-      endDateTime: createTimestamp(createEventModel.endDateTime),
+      startDateTime: createEventModel.startDateTime,
+      endDateTime: createEventModel.endDateTime,
       location: createEventModel.location,
       organizer: createEventModel.organizer_id,
       xpGiven: createEventModel.xpGiven,
@@ -22,8 +22,3 @@ export const createEvent = async (createEventModel: CreateEventModel) => {
     throw new Error("Error creating event, please check pocketbase.");
   }
 };
-
-function createTimestamp(dateString: string) {
-  const date = new Date(dateString);
-  return date.getTime();
-}
