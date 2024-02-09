@@ -6,10 +6,13 @@ import { client } from "../client";
  */
 export const authUserWithPassword = async (
   emailOrUsername: string,
-  password: string
-) => {  
+  password: string,
+) => {
   try {
-    const authData = await client.users.authWithPassword(emailOrUsername, password);
+    const authData = await client.users.authWithPassword(
+      emailOrUsername,
+      password,
+    );
 
     if (!authData.token) {
       throw new Error("No user found during authentication");

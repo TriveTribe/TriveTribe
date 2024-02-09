@@ -15,7 +15,7 @@ export const registerUser = async (createUserModel: CreateUserModel) => {
       role: createUserModel.role,
     });
     return records;
-  } catch (error:any) {
+  } catch (error: any) {
     throw new Error(error);
   }
 };

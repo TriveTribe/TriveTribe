@@ -2,20 +2,26 @@ import { client } from "../client";
 import { EventModel } from "@/models/eventModel";
 
 /**
- * Fetch all events with the given pagination and page number
+ * Fetch all events that matches the given eventIds
  * @param pagination number of items to fetch per page
  * @param pageNumber page number to fetch
+ * @param eventIds array of event ids to fetch
  * @returns array of events
  */
-export const fetchEvents = async (pagination: number, pageNumber: number) => {
+export const fetchEventsWithId = async (
+  pagination: number,
+  pageNumber: number,
+  eventIds: string[],
+) => {
   try {
     const records = await client.events.getList(pageNumber, pagination, {
       sort: "-created",
+      filter: eventIds.map((id) => `id="${id}"`).join("||"),
     });
 
     if (records.items.length === 0)
       console.warn(
-        "No events found from pocketbase, please check if fetched correctly",
+        "No events found from pocketbase, please check the pocketbase logs",
       );
 
     const events: EventModel[] = records.items.map((record) => {
@@ -35,6 +41,6 @@ export const fetchEvents = async (pagination: number, pageNumber: number) => {
 
     return events;
   } catch (error) {
-    throw new Error("Error fetching events");
+    throw new Error("Error fetching events, please check implementation");
   }
 };

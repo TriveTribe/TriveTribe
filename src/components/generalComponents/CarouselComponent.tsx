@@ -1,15 +1,55 @@
-import React from 'react'
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import Carousel from "react-material-ui-carousel";
+import { Paper } from "@mui/material";
+
+// assumes that the prop is of the same length for titles and image links
 
 type Props = {
-    title: string
-}
+  titles: string[];
+  imgLinks: string[];
+};
 
 const CarouselComponent = (props: Props) => {
-  return (
-    <div className='text-[#31B529] p-8 w-full flex'>
-      <p className='text-4xl'>{props.title}</p>
-    </div>
-  )
-}
+  const [idx, setIdx] = useState(0);
 
-export default CarouselComponent
+  const next = () => {
+    setIdx((idx + 1) % props.titles.length);
+  };
+
+  const prev = () => {
+    setIdx((idx + props.titles.length - 1) % props.titles.length);
+  };
+
+  return (
+    <div className="mx-8 space-y-8">
+      <Carousel next={next} prev={prev} className="" autoPlay={false}>
+        {props.titles.map((title, index) => {
+          return (
+            <Paper
+              key={index}
+              className="flex justify-center items-center border-2 rounded-xl h-[200px]"
+            >
+              {props.imgLinks[index] && (
+                <Image
+                  src={props.imgLinks[index]}
+                  alt="carousel image"
+                  width={200}
+                  height={200}
+                  className="absolute h-full w-full"
+                />
+              )}
+
+              <div className="flex flex-col items-center justify-center gap-4 h-[200px]">
+                <p className="text-xl">{title}</p>
+              </div>
+            </Paper>
+          );
+        })}
+      </Carousel>
+    </div>
+  );
+};
+
+export default CarouselComponent;

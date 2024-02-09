@@ -3,6 +3,8 @@ import { CreateEventModel } from "@/models/eventModel";
 
 /**
  * Create events on pocketbase
+ * @param createEventModel model for creating an event
+ * @returns records of the created event
  */
 export const createEvent = async (createEventModel: CreateEventModel) => {
   try {
@@ -17,7 +19,7 @@ export const createEvent = async (createEventModel: CreateEventModel) => {
     });
     return records;
   } catch (error) {
-    throw new Error("Error creating event, please check fields and try again.");
+    throw new Error("Error creating event, please check pocketbase.");
   }
 };
 

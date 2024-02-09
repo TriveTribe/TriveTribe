@@ -5,7 +5,8 @@ import { fetchBadges } from '@/utils/pocketbase/badges/fetchBadges';
 //import Image from 'next/image';
 //import React from 'react';
 
-type Props = {}
+
+type Props = {};
 
 const BadgesPage = async (props: Props) => {
 
