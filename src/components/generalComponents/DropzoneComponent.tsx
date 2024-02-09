@@ -25,7 +25,9 @@ function DropzoneComponent({
         {isDragActive ? (
           <p>Drop the files here ...</p>
         ) : (
-          <p className="text-center">Drag and drop some files here, or click to select files</p>
+          <p className="text-center">
+            Drag and drop some files here, or click to select files
+          </p>
         )}
         <p>Only .png /.jpg/.webp accepted</p>
       </div>

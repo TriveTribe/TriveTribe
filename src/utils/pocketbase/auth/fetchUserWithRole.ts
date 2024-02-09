@@ -8,7 +8,7 @@ export const fetchUserWithRole = async (roles: string[]) => {
   try {
     const records = await client.users.getFullList({
       sort: "-created",
-      filter: roles.map((role) => `role="${role}"`).join("||")
+      filter: roles.map((role) => `role="${role}"`).join("||"),
     });
 
     if (records.length === 0)

@@ -5,7 +5,6 @@ import HeaderComponent from "@/components/generalComponents/HeaderComponent";
 import ToggleFormComponent from "@/components/generalComponents/ToggleFormComponent";
 import EventForm from "@/components/formComponents/EventForm";
 import { fetchBadges } from "@/utils/pocketbase/badges/fetchBadges";
-import { fetchUsers } from "@/utils/pocketbase/auth/fetchUsers";
 import { fetchUserWithRole } from "@/utils/pocketbase/auth/fetchUserWithRole";
 
 type Props = {};

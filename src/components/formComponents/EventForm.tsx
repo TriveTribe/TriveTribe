@@ -14,6 +14,7 @@ import TimePickerComponent from "../generalComponents/TimePickerComponent";
 import { BadgeModel } from "@/models/badgeModel";
 import { DropdownComponent } from "../generalComponents/DropdownComponent";
 import { UserModel } from "@/models/userModel";
+import MultiDropdownComponent from "../generalComponents/MultiDropdownComponent";
 
 type Props = {
   formLabel: string;
@@ -37,13 +38,14 @@ function EventForm({
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [date, setDate] = useState<Dayjs | null>(dayjs("2024-04-17"));
   const [startTime, setStartTime] = useState<Dayjs | null>(
-    dayjs("2024-04-17T10:00:00")
+    dayjs("2024-04-17T10:00:00"),
   );
   const [endTime, setEndTime] = useState<Dayjs | null>(
-    dayjs("2024-04-17T10:00:00")
+    dayjs("2024-04-17T10:00:00"),
   );
-  const [selectedBadge, setSelectedBadge] = useState<string>(
-    badges[0].id ?? ""
+  const [selectedBadges, setSelectedBadges] = useState<string[]>([]);
+  const [selectedOrganizer, setSelectedOrganizer] = useState<string>(
+    organizers[0].id ?? "",
   );
 
   // Dropzone props
@@ -60,20 +62,35 @@ function EventForm({
   // Form submit
   const onSubmit: SubmitHandler<CreateEventFormModel> = async (data) => {
     setIsLoading(true);
+
+    const formData = new FormData();
+    uploadedFiles.forEach((file) => {
+      formData.append("Images", file);
+    });
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    if (date && startTime)
+      formData.append(
+        "startDateTime",
+        getDateTimeString(date.toISOString(), startTime.toISOString()),
+      );
+    if (date && endTime)
+      formData.append(
+        "endDateTime",
+        getDateTimeString(date.toISOString(), endTime.toISOString()),
+      );
+    formData.append("location", data.location);
+    formData.append("organizer", selectedOrganizer);
+    formData.append("xpGiven", data.xpGiven.toString());
+    badges
+      .filter((badge) => selectedBadges.includes(badge.name))
+      .forEach((badge) => {
+        formData.append("badges", badge.id ?? "");
+      });
+
     const response = await fetch("/api/events", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: data.name,
-        description: data.description,
-        startDateTime: getDateTimeString(data.date, data.startTime),
-        endDateTime: getDateTimeString(data.date, data.endTime),
-        location: data.location,
-        organizer_id: data.organizer_id,
-        xpGiven: data.xpGiven,
-      }),
+      body: formData,
     });
     if (response) {
       response.json().then((data) => console.log(data));
@@ -141,8 +158,8 @@ function EventForm({
                 value: organizer.id ?? "",
               };
             })}
-            value={selectedBadge}
-            setValue={setSelectedBadge}
+            value={selectedOrganizer}
+            setValue={setSelectedOrganizer}
           />
         </FormInputContainer>
       </div>
@@ -151,15 +168,10 @@ function EventForm({
           <DatePickerComponent date={date} setDate={setDate} />
         </FormInputContainer>
         <FormInputContainer label="Badges">
-          <DropdownComponent
-            dropdownModels={badges.map((badge) => {
-              return {
-                label: badge.name ?? "",
-                value: badge.id ?? "",
-              };
-            })}
-            value={selectedBadge}
-            setValue={setSelectedBadge}
+          <MultiDropdownComponent
+            options={badges.map((badge) => badge.name)}
+            selected={selectedBadges}
+            setSelected={setSelectedBadges}
           />
         </FormInputContainer>
       </div>

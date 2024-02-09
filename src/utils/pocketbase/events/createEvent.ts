@@ -6,17 +6,9 @@ import { CreateEventModel } from "@/models/eventModel";
  * @param createEventModel model for creating an event
  * @returns records of the created event
  */
-export const createEvent = async (createEventModel: CreateEventModel) => {
+export const createEvent = async (formData: FormData) => {
   try {
-    const records = await client.events.create({
-      name: createEventModel.name,
-      description: createEventModel.description,
-      startDateTime: createEventModel.startDateTime,
-      endDateTime: createEventModel.endDateTime,
-      location: createEventModel.location,
-      organizer: createEventModel.organizer_id,
-      xpGiven: createEventModel.xpGiven,
-    });
+    const records = await client.events.create(formData);
     return records;
   } catch (error) {
     throw new Error("Error creating event, please check pocketbase.");

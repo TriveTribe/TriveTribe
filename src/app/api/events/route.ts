@@ -3,26 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const {
-      name,
-      description,
-      startDateTime,
-      endDateTime,
-      location,
-      organizer_id,
-      xpGiven,
-    } = body;
+    const formData = await request.formData();
 
-    const response = await createEvent({
-      name: name,
-      description: description,
-      startDateTime: startDateTime,
-      endDateTime: endDateTime,
-      location: location,
-      organizer_id: organizer_id,
-      xpGiven: xpGiven,
-    });
+    const response = await createEvent(formData);
 
     return NextResponse.json({ message: "Event created successfully" });
   } catch (error: any) {
