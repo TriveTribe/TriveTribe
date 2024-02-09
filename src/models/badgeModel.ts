@@ -15,7 +15,6 @@ export interface BadgeModel extends pocketbaseDefaultModel {
   name: string;
   description: string;
   images?: string;
-
 }
 
 /**
@@ -26,7 +25,6 @@ export interface BadgeModel extends pocketbaseDefaultModel {
  * @param organizer_id organizer of the event
  * @param xpGiven experience points given for the event
  */
-
 
 /**
  * @param name name of the badge
