@@ -1,4 +1,3 @@
-import { createAnnouncement } from "@/utils/pocketbase/announcements/createAnnouncements";
 import { NextRequest, NextResponse } from "next/server";
 import { authUserWithPassword } from "@/utils/pocketbase/auth/authUserWithPassword";
 import { cookies } from "next/headers";
@@ -12,8 +11,6 @@ export async function POST(request: NextRequest) {
       username: username,
       password: password,
     });
-
-    console.log(response);
 
     const { record, token } = response;
     record.token = token;

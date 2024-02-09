@@ -7,7 +7,7 @@ type Props = {
 
 const ProfileComponent = ({ name }: Props) => {
   return (
-    <div className="flex flex-col justify-center items-center p-4">
+    <div className="flex flex-col justify-center items-center p-4 gap-4">
       <PersonIcon className="text-black border rounded-full h-24 w-24" />
       <p className="text-2xl">Hi {name}</p>
     </div>

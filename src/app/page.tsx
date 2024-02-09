@@ -5,10 +5,8 @@ import { fetchAnnouncements } from "@/utils/pocketbase/announcements/fetchAnnoun
 import ToggleFormComponent from "@/components/generalComponents/ToggleFormComponent";
 import { fetchEvents } from "@/utils/pocketbase/events/fetchEvents";
 import AnnouncementForm from "@/components/formComponents/AnnouncementForm";
-import { cookies } from "next/headers";
 
 export default async function Home() {
-  // all the fetch requests here
   const events = await fetchEvents(3, 1);
   const titles = await fetchAnnouncements(3, 1).then((announcements) => {
     return announcements.map((announcement) => {
@@ -16,7 +14,6 @@ export default async function Home() {
     });
   });
   const img_links = ["", "", ""];
-  console.log(cookies());
 
   return (
     <main className="pl-5 w-full h-full">

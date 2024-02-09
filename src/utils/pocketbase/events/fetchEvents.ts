@@ -12,8 +12,11 @@ export const fetchEvents = async (
   pageNumber: number = 1,
 ) => {
   try {
+    const eventIds = client.authStore.model?.events ?? [];
+
     const records = await client.events.getList(pageNumber, pagination, {
       sort: "-created",
+      filter: eventIds.map((id: any) => `id="${id}"`).join("||"),
     });
 
     if (records.items.length === 0)

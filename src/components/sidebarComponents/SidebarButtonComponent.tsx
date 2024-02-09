@@ -7,9 +7,10 @@ type Props = {
   name: string;
   icon: React.ReactNode;
   url: string;
+  callback?: () => void;
 };
 
-const SidebarButtonComponent = ({ name, icon, url }: Props) => {
+const SidebarButtonComponent = ({ name, icon, url, callback }: Props) => {
   const pathname = usePathname();
 
   return (
@@ -23,6 +24,7 @@ const SidebarButtonComponent = ({ name, icon, url }: Props) => {
         }
       `}
       href={url}
+      onClick={callback}
     >
       {icon}
       <p>{name}</p>
