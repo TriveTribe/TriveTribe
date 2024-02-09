@@ -7,7 +7,10 @@ import { EventModel } from "@/models/eventModel";
  * @param pageNumber page number to fetch
  * @returns array of events
  */
-export const fetchEvents = async (pagination: number, pageNumber: number) => {
+export const fetchEvents = async (
+  pagination: number = 50,
+  pageNumber: number = 1,
+) => {
   try {
     const records = await client.events.getList(pageNumber, pagination, {
       sort: "-created",

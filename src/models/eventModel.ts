@@ -51,4 +51,6 @@ export interface CreateEventModel {
   xpGiven: number;
   startDateTime: string;
   endDateTime: string;
+  images?: File[];
+  badges: string[];
 }
